@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+categories = Category.create!([
+    {title: "Ruby"},
+    {title: "Linux"}
+])
+
+users = User.create!([
+    {name: "Fedor"},
+    {name: "Masha"},
+    {name: "Olga"}
+])
+
+tests = Test.create!([
+    {title: "Ruby for beginners", level: 1, category_id: categories[0].id, user_id: users[0].id},
+    {title: "Linux for beginners", level: 1, category_id: categories[1].id, user_id: users[1].id}
+])
+
+questions = Question.create!([
+    {body: "A command in Linux to change directory?", test_id: tests[1].id},
+    {body: "Method in Ruby that is used to display the output of a program on the console?", test_id: tests[0].id},
+    {body: "Dictionary-like collection of unique keys and their values in Ruby?", test_id: tests[0].id},
+    {body: "A command-line utility that allows users to create new directories in Linux?", test_id: tests[1].id}
+])
+
+answers = Answer.create!([
+    {body: "puts", correct: true, question_id: questions[1]},
+    {body: "get", correct: false, question_id: questions[1]},
+    {body: "cd", correct: true, question_id: questions[0]},
+    {body: "pwd", correct: false, question_id: questions[0]},
+    {body: "hash", correct: true, question_id: questions[2]},
+    {body: "array", correct: false, question_id: questions[2]},
+    {body: "mkdir", correct: true, question_id: questions[3]},
+    {body: "mk", correct: false, question_id: questions[3]}
+])
