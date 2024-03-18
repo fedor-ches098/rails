@@ -18,8 +18,8 @@ users = User.create!([
 ])
 
 tests = Test.create!([
-    {title: "Ruby for beginners", level: 1, category_id: categories[0].id, user_id: users[0].id},
-    {title: "Linux for beginners", level: 1, category_id: categories[1].id, user_id: users[1].id}
+    {title: "Ruby for beginners", level: 1, category_id: categories[0].id, author_id: users[0].id},
+    {title: "Linux for beginners", level: 1, category_id: categories[1].id, author_id: users[1].id}
 ])
 
 questions = Question.create!([
@@ -30,12 +30,12 @@ questions = Question.create!([
 ])
 
 answers = Answer.create!([
-    {body: "puts", correct: true, question_id: questions[1]},
-    {body: "get", correct: false, question_id: questions[1]},
-    {body: "cd", correct: true, question_id: questions[0]},
-    {body: "pwd", correct: false, question_id: questions[0]},
-    {body: "hash", correct: true, question_id: questions[2]},
-    {body: "array", correct: false, question_id: questions[2]},
-    {body: "mkdir", correct: true, question_id: questions[3]},
-    {body: "mk", correct: false, question_id: questions[3]}
+    {body: "puts", correct: true, question_id: questions[1].id},
+    {body: "get", correct: false, question_id: questions[1].id},
+    {body: "cd", correct: true, question_id: questions[0].id},
+    {body: "pwd", correct: false, question_id: questions[0].id},
+    {body: "hash", correct: true, question_id: questions[2].id},
+    {body: "array", correct: false, question_id: questions[2].id},
+    {body: "mkdir", correct: true, question_id: questions[3].id},
+    {body: "mk", correct: false, question_id: questions[3].id}
 ])
