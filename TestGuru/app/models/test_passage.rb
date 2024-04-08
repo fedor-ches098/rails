@@ -3,7 +3,9 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
+  before_validation :before_validation_set_current_question, on: [:create, :update]
+
+  SUCCESS_SCORE = 85
 
   def completed?
     current_question.nil?
@@ -13,8 +15,7 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-  
-    self.current_question = next_question
+
     save!
   end
 
@@ -23,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    success_rate >= 85
+    success_rate >= SUCCESS_SCORE
   end
 
   def current_question_index
@@ -31,10 +32,6 @@ class TestPassage < ApplicationRecord
   end
 
   private
-
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
 
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
@@ -46,5 +43,13 @@ class TestPassage < ApplicationRecord
   
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def before_validation_set_current_question
+    if current_question.nil?
+      self.current_question = test.questions.first
+    else
+      self.current_question = next_question
+    end
   end
 end

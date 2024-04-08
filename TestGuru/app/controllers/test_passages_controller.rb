@@ -8,7 +8,6 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    puts "DEBUG PARAMS #{params}"
     @test_passage.accept!(params[:answer_ids])
   
     if @test_passage.completed?
