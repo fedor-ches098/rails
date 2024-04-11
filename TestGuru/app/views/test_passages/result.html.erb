@@ -1,0 +1,10 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<% if @test_passage.success? %>
+  Test passed!<%= content_tag(:div, @test_passage.success_rate, class: 'success') %>%
+<%else%>
+  Test failed!<%= content_tag(:span, @test_passage.success_rate, class: 'fail') %>%
+<% end %>
+
+<p>
+<%= link_to 'Back', root_path %>
+</p>
