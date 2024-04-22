@@ -3,6 +3,10 @@
   padding: 10px;
   border-radius: 5px;
 
+&.notice {
+  border-color: blue;
+  }
+
 &.alert {
     border-color: red;
   }
