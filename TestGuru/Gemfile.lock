@@ -88,6 +88,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.12.0)
+      devise (>= 4.9.0)
     erubi (1.12.0)
     ffi (1.16.3)
     globalid (1.2.1)
@@ -247,6 +249,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.0)
+  devise-i18n
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.3)
