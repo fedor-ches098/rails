@@ -19,6 +19,7 @@ module TestGuru
     # in config/environments, which are processed later.
     #
     config.time_zone = "Moscow"
+    config.autoload_paths << "#{Rails.root}/lib/clients"
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
