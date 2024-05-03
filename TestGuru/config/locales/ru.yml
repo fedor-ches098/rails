@@ -45,9 +45,23 @@ ru:
       actions: "Действия"
     test:
       start: "Начать"
+  
+
+  gists:
+    create:
+      success: "Gist успешно сохранен! %{url}"
+      failure: "Во время сохранения gist произошла ошибка"
+    description: "Вопрос по тесту %{test_title} от TestGuru"
 
   admin:
+    gists:
+      index:
+        header: "Список гистов"
+        question: "Вопрос"
+        link: "Ссылка"
+        email: "E-mail пользователя"
     tests:
+      gists: "Доступные гисты"
       create:
         success: "Тест успешно создан"
       update:

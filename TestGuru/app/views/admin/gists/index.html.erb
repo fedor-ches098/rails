@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    <h2><%= t('.header') %></h2>
+  </div>
+  <div class="card-body">
+    <table>
+      <tr>
+        <th><%= t('.question') %></th>
+        <th><%= t('.link') %></th>
+        <th><%= t('.email') %></th>
+      </tr>
+      
+      <%= render @gists %>
+    </table>
+  </div>
+</div>

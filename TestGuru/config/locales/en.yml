@@ -22,6 +22,10 @@ ru:
     nav:
       welcome: "Welcome, %{user_email} Guru!"
       log_out: "Logout"
+    errors:
+      header:
+        one: "%{count} error detected"
+        many: "%{count} errors detected" 
 
   pages:
     index:
@@ -39,9 +43,22 @@ ru:
       actions: "Actions"
     test:
       start: "Start"
+    
+  gists:
+    create:
+      success: "Gist was successfully created! %{url}"
+      failure: "An error occurred while saving gist"
+    description: "A question about %{test_title} from TestGuru"
 
   admin:
+    gists:
+      index:
+        header: "Gists"
+        question: "Question"
+        link: "Link"
+        email: "E-mail"
     tests:
+      gists: "Tricky gists"
       create:
         success: "Test successfully created"
       update:
