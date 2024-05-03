@@ -8,7 +8,7 @@ class GitHubClient
   end
 
   def get_status
-    @client.last_response.status
+    @client.last_response.status == 201
   end
 
   private

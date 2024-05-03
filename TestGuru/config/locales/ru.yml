@@ -46,11 +46,12 @@ ru:
     test:
       start: "Начать"
   
-  test_passages:
-    gist:
+
+  gists:
+    create:
       success: "Gist успешно сохранен! %{url}"
       failure: "Во время сохранения gist произошла ошибка"
-      description: "Вопрос по тесту %{test_title} от TestGuru"
+    description: "Вопрос по тесту %{test_title} от TestGuru"
 
   admin:
     gists:

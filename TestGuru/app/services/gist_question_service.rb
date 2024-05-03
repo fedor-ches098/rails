@@ -10,14 +10,14 @@ class GistQuestionService
   end
 
   def success?
-    @client.get_status == 201
+    @client.get_status
   end
 
   private
 
   def gist_params
     {
-      description: I18n.t('test_passages.gist.description', test_title: @test.title),
+      description: I18n.t('gists.description', test_title: @test.title),
       files: {
         "test-guru-question.txt" => {
           content: gist_content

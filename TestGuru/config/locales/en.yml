@@ -44,11 +44,11 @@ ru:
     test:
       start: "Start"
     
-  test_passages:
-    gist:
+  gists:
+    create:
       success: "Gist was successfully created! %{url}"
       failure: "An error occurred while saving gist"
-      description: "A question about %{test_title} from TestGuru"
+    description: "A question about %{test_title} from TestGuru"
 
   admin:
     gists:
