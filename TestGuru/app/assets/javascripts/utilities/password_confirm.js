@@ -15,7 +15,7 @@ function validation() {
   if (password_confirmation_value.length == 0) {
     this.classList.remove('bg-danger')
     this.classList.remove('bg-success')
-    this.classList.add('bg-info')
+    this.classList.add('bg-light')
     return;
   }
 
