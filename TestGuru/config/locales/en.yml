@@ -58,6 +58,8 @@ ru:
         link: "Link"
         email: "E-mail"
     tests:
+      form_inline:
+        submit: "ОК"
       gists: "Tricky gists"
       create:
         success: "Test successfully created"
