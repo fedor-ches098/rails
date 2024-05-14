@@ -61,6 +61,8 @@ ru:
         link: "Ссылка"
         email: "E-mail пользователя"
     tests:
+      form_inline:
+        submit: "ОК"
       gists: "Доступные гисты"
       create:
         success: "Тест успешно создан"
