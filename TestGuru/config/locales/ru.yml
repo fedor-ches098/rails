@@ -22,6 +22,7 @@ ru:
     nav:
       welcome: "Добро пожаловать, %{user_email} Гуру!"
       log_out: "Выйти"
+      contact_us: "Связаться с нами"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -46,12 +47,21 @@ ru:
     test:
       start: "Начать"
   
-
   gists:
     create:
       success: "Gist успешно сохранен! %{url}"
       failure: "Во время сохранения gist произошла ошибка"
     description: "Вопрос по тесту %{test_title} от TestGuru"
+
+  contacts:
+    new:
+      contact_us: "Обратная связь"
+      name: "Ваше имя"
+      email: "Ваш Email"
+      body: "Cообщение"
+      send_button: "Отправить"
+    create:
+      success: "Ваше сообщение успешно отправлено!"
 
   admin:
     gists:

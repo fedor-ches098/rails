@@ -22,6 +22,7 @@ ru:
     nav:
       welcome: "Welcome, %{user_email} Guru!"
       log_out: "Logout"
+      contact_us: "Contact us"
     errors:
       header:
         one: "%{count} error detected"
@@ -49,6 +50,16 @@ ru:
       success: "Gist was successfully created! %{url}"
       failure: "An error occurred while saving gist"
     description: "A question about %{test_title} from TestGuru"
+  
+  contacts:
+    new:
+      contact_us: "Contact Us"
+      name: "Your Name"
+      email: "Your Email"
+      body: "Message"
+      send_button: "Send"
+    create:
+      success: "Your message was successfully sent!"
 
   admin:
     gists:
