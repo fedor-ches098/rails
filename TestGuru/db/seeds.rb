@@ -17,10 +17,10 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  {email: "valeria@gmail.com", first_name: "Valeria", last_name: "Glumova", password: "123456"},
-  {email: "katerit@gmail.com", first_name: "Kate", last_name: "Ivanova", password: "123456"},
-  {email: "fedor@gmail.com", first_name: "Fedor", last_name: "Chesnokov", password: "123456"},
-  {email: "anna@gmail.com", first_name: "Anna", last_name: "Sharabanova", password: "123456"}
+  {email: "valeria@gmail.com", first_name: "Valeria", last_name: "Glumova", password: "123456", confirmed_at: Time.now},
+  {email: "katerit@gmail.com", first_name: "Kate", last_name: "Ivanova", password: "123456", confirmed_at: Time.now},
+  {email: "fedor@gmail.com", first_name: "Fedor", last_name: "Chesnokov", password: "123456", type: 'Admin', confirmed_at: Time.now},
+  {email: "anna@gmail.com", first_name: "Anna", last_name: "Sharabanova", password: "123456", confirmed_at: Time.now}
 ])
 
 tests = Test.create!([
