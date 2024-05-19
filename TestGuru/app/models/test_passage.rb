@@ -46,10 +46,11 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_current_question
-    if current_question.nil?
-      self.current_question = test.questions.first
-    else
-      self.current_question = next_question
-    end
+    self.current_question = test.questions.first if test.present?
+    #if current_question.nil?
+    #  self.current_question = test.questions.first
+    #else
+    #  self.current_question = next_question
+    #end
   end
 end
