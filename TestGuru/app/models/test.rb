@@ -5,7 +5,7 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :test_passages, dependent: :destroy
-  has_many :users, through: :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   scope :easy, -> {where(level: 0..1)}
   scope :medium, -> {where(level: 2..4)}
