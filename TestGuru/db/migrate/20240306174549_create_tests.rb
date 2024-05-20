@@ -1,5 +1,5 @@
 class CreateTests < ActiveRecord::Migration[6.1]
-  def change
+  def up
     create_table :tests do |t|
       t.string :title, null: false
       t.integer :level, default: 0

@@ -1,5 +1,5 @@
 class CreateGists < ActiveRecord::Migration[6.1]
-  def change
+  def up
     create_table :gists do |t|
       t.references :question, foreign_key: true
       t.references :user, foreign_key: true
