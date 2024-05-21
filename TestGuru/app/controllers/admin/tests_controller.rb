@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :find_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show edit update destroy update_inline publish]
+  before_action :find_test, only: %i[show edit update destroy update_inline]
 
   def index
   end
@@ -46,15 +46,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path, notice: t('.success')
   end
 
-  def publish
-    if @test.public == false
-      @test.update_attribute(:public, true)
-    else
-      @test.update_attribute(:public, false)
-    end
-    redirect_to admin_tests_path
-  end
-
   private
 
   def find_tests
@@ -66,6 +57,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :public, :category_id, :author_id)
   end
 end

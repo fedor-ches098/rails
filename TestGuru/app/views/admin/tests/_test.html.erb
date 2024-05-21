@@ -7,7 +7,6 @@
   <td class="align-middle"><%= test.questions.count %></td>
   <td class="align-middle"><%= test.public %></td>
   <td class="align-middle"><%= link_to t('.show'), admin_test_path(test) %></td>
-  <td class="align-middle"><%= link_to t('.public'), publish_admin_test_path(test), method: :post %>
   <td class="align-middle">
     <%= link_to t('.edit'), 
                 edit_admin_test_path(test), 
