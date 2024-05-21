@@ -21,5 +21,6 @@
 
     <%= link_to t('.edit'), edit_admin_test_path(@test) %> |
     <%= link_to t('.back'), admin_tests_path %>
+    <%= link_to t('.public'), publish_admin_test_path(@test), method: :post %>
   </div>
 </div>

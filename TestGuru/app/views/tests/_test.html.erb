@@ -1,4 +1,4 @@
-<% if test.questions.joins(:answers).present?%>
+<% if test.public == true %>
   <tr>
     <td><%= test.title %></td>
     <td><%= test.level %></td>

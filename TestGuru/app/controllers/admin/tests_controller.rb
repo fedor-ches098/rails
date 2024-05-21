@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :find_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show edit update destroy update_inline]
+  before_action :find_test, only: %i[show edit update destroy update_inline publish]
 
   def index
   end
@@ -44,6 +44,15 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
     redirect_to admin_tests_path, notice: t('.success')
+  end
+
+  def publish
+    if @test.public == false
+      @test.update_attribute(:public, true)
+    else
+      @test.update_attribute(:public, false)
+    end
+    redirect_to admin_tests_path
   end
 
   private

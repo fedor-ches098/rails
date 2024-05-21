@@ -24,8 +24,8 @@ users = User.create!([
 ])
 
 tests = Test.create!([
-    {title: "Ruby for beginners", level: 1, category_id: categories[0].id, author_id: users[0].id},
-    {title: "Linux for beginners", level: 1, category_id: categories[1].id, author_id: users[1].id}
+    {title: "Ruby for beginners", level: 1, category_id: categories[0].id, author_id: users[0].id, public: false},
+    {title: "Linux for beginners", level: 1, category_id: categories[1].id, author_id: users[1].id, public: false}
 ])
 
 questions = Question.create!([
