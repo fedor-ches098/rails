@@ -34,7 +34,7 @@ class TestPassage < ApplicationRecord
   private
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
   
   def correct_answers
@@ -46,7 +46,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_current_question
-    if current_question.nil?
+    if current_question.nil? && test.present?
       self.current_question = test.questions.first
     else
       self.current_question = next_question
