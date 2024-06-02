@@ -3,6 +3,7 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       <p class="text-dark">
+        <%= link_to 'Badges', admin_badges_path %>
         <%= t('shared.nav.welcome', user_email: current_user.email) %>
         <%= link_to t('shared.nav.log_out'), destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
       </p>

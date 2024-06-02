@@ -27,6 +27,11 @@ class TestPassage < ApplicationRecord
     success_rate >= SUCCESS_SCORE
   end
 
+  def passed?
+    self.passed = success?
+    save!
+  end
+
   def current_question_index
     test.questions.ids.find_index(current_question.id) + 1
   end
