@@ -3,13 +3,18 @@
   <%= render 'shared/errors', resource: @badge %>
   
   <p>
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :badge_title, placeholder: 'Title' %>
+    <%= form.label :name %>
+    <%= form.text_field :title, id: :badge_name, placeholder: 'Name' %>
   </p>
 
   <p>
     <%= form.label :rule %>
     <%= form.text_field :rule, id: :badge_rule %>
+  </p>
+
+  <p>
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :badge_value %>
   </p>
 
   <p>

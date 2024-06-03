@@ -13,9 +13,9 @@ Category.destroy_all
 Badge.destroy_all
 
 badges = Badge.create!([
-    {title: "backend_category", rule: "Backend", image_url: "https://png.pngtree.com/element_pic/00/16/07/18578cd65e6ecaa.jpg"},
-    {title: "first_try", rule: "1", image_url: "https://w7.pngwing.com/pngs/557/291/png-transparent-red-ribbon-illustration-blue-ribbon-ribbon-badge-blue-ribbon-medal-thumbnail.png"},
-    {title: "certain_level", rule: "2", image_url: "https://png.pngtree.com/png-vector/20210206/ourmid/pngtree-award-badge-symbol-design-template-vector-png-image_2889870.jpg"}
+    {name: "All backend tests passed!", rule: "backend_category", value: "Backend", image_url: "https://png.pngtree.com/element_pic/00/16/07/18578cd65e6ecaa.jpg"},
+    {name: "First try test passed!", rule: "first_try", value: "1", image_url: "https://w7.pngwing.com/pngs/557/291/png-transparent-red-ribbon-illustration-blue-ribbon-ribbon-badge-blue-ribbon-medal-thumbnail.png"},
+    {name: "All level tests passed!", rule: "certain_level", value: "2", image_url: "https://png.pngtree.com/png-vector/20210206/ourmid/pngtree-award-badge-symbol-design-template-vector-png-image_2889870.jpg"}
 ])
 
 categories = Category.create!([

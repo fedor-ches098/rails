@@ -4,15 +4,12 @@ class BadgeService
     @test_passage = test_passage
     @user = test_passage.user
     @test = test_passage.test
-    @user_badges = []
   end
 
   def reward!
-    titles.each do |title|
-      badge = Badge.find_by(title: title) 
-      @user_badges << badge if send(title, badge)
+    Badge.all.map do |badge|
+      @user.badges.push(badge) if send(badge.rule, badge)
     end
-    @user_badges
   end
 
   def first_try(_blank)
@@ -20,22 +17,18 @@ class BadgeService
   end
 
   def certain_level(badge)
-    unless @user.badges.include? badge
-      Test.where(level: badge.rule).count == user_tests_by_level(badge.rule).count
+    if @user.badges.exclude?(badge)
+      Test.where(level: badge.value).count == user_tests_by_level(badge.value).count
     end
   end
 
   def backend_category(badge)
-    unless @user.badges.include? badge
-      Test.all.where(category_id: category_id(badge.rule)).count == user_tests_by_category(category_id(badge.rule)).count
+    if @user.badges.exclude?(badge)
+      Test.by_category(badge.value).count == user_tests_by_category(badge.value).count
     end
   end
 
   private
-
-  def titles
-    Badge.all.pluck(:title)
-  end
 
   def user_tests
     @user.test_passages.joins(:test).where(passed: true)
@@ -45,11 +38,7 @@ class BadgeService
     user_tests.where(tests: {level: level})
   end
 
-  def category_id(category_name)
-    category_id = Category.find_by(title: category_name)
-  end
-
-  def user_tests_by_category(category_id)
-    user_tests.where(tests: {category_id: category_id})
+  def user_tests_by_category(category_name)
+    @user.tests.by_category(category_name).joins(:test_passages).where(test_passages: {passed: true})
   end
 end
