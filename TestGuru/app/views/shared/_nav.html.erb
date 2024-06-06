@@ -5,6 +5,7 @@
       <p class="text-dark">
         <%= t('.welcome', user_email: current_user.email) %> |
         <%= link_to t('.contact_us'), new_contact_path %> |
+        <%= link_to 'My badges', badges_path %> |
         <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
       </p>
     <% end %>

@@ -1,0 +1,13 @@
+<tr align="center">
+  <td><%= badge.name %></td>
+  <td><%= badge.rule %></td>
+  <td><%= image_tag("#{badge.image_url}") %></td>
+  <td><%= link_to 'Show', admin_badge_path(badge) %></td>
+  <td><%= link_to 'Edit'%></td>
+  <td><%= link_to 'Back', root_path %></td>
+  <td>
+    <%= link_to 'Delete', admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: t('.confirm') } %>
+  </td>
+</tr>

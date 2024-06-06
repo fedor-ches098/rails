@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   
   resources :contacts, only: :create
+
+  resources :badges, only: :index
+  
   get 'contact-us', to: "contacts#new", as: "new_contact"
   
   root 'pages#index'
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :gists, only: :index
     resources :tests do
       patch :update_inline, on: :member
