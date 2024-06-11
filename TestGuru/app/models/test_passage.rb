@@ -12,11 +12,14 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
+    if time_is_up?
+      self.current_question = nil
+      self.passed = false
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+      self.passed = success?
+      save!
     end
-
-    save!
   end
 
   def success_rate
@@ -34,6 +37,10 @@ class TestPassage < ApplicationRecord
 
   def current_question_index
     test.questions.ids.find_index(current_question.id) + 1
+  end
+
+  def time_is_up?
+    ((test.timer * 60) + created_at.to_i) - Time.now.to_i < 0
   end
 
   private

@@ -6,31 +6,30 @@ document.addEventListener('turbolinks:load', function() {
 })
 
 function countDown(timerElement) {
-  var timerInSeconds = timerElement.dataset.timeTest * 60
+  var timeTest = timerElement.dataset.timeTest * 60
+  var testCreated = new Date((timerElement.dataset.createdAt) * 1000)
   
-  setTime(timerElement, timerInSeconds)
+  var endTime = (testCreated.getTime() / 1000) + timeTest
+  var timeNow = Math.floor(Date.now() / 1000)
 
-  var timerId = setInterval(function() {
-    timerInSeconds--
-    
-    setTime(timerElement, timerInSeconds)
-    
-    if (timerInSeconds == 0) {
-      clearInterval(timerId)
-      alert("Время вышло")
-      window.location.replace(window.location + '/result')
-    }
-  }, 1000)
-}
+  var passedTime = endTime - timeNow
+  
+  if (passedTime < 0) {
+    document.querySelector('.passage-form').submit()
+    return
+  }
 
-function setTime(timerElement, timerInSeconds) {
-  var hours = Math.floor(timerInSeconds / 3600)
-  var minutes = Math.floor((timerInSeconds / 60) % 60)
-  var seconds = Math.floor(timerInSeconds % 60)
+  var hours   = Math.trunc(passedTime / 3600)
+  var minutes = Math.trunc((passedTime - (hours * 3600)) / 60)
+  var seconds = passedTime - (hours * 3600) - (minutes * 60)
 
-  if (seconds < 10) seconds = '0' + seconds
-  if (minutes < 10) minutes = '0' + minutes
-  if (hours < 10) hours = '0' + hours
+  if (seconds < 10) { seconds = '0' + seconds }
 
-  timerElement.textContent = hours + ':' + minutes + ':' + seconds
+  if (minutes < 10) { minutes = '0' + minutes }
+
+  if (hours < 10) { hours = '0' + hours }
+
+  timer.textContent = hours + ':' + minutes + ':' + seconds
+
+  setTimeout(countDown, 1000, timerElement)
 }

@@ -1,5 +1,6 @@
 <p><%= content_tag :span,
   @test_passage.test.timer,
   id: 'timer',
-  data: {  time_test: @test_passage.test.timer } 
+  data: { time_test: @test_passage.test.timer,
+          created_at: @test_passage.created_at.to_i } 
 %></p>
