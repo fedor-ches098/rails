@@ -12,14 +12,11 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if time_is_up?
-      self.current_question = nil
-      self.passed = false
-    else
-      self.correct_questions += 1 if correct_answer?(answer_ids)
-      self.passed = success?
-      save!
+    if correct_answer?(answer_ids)
+      self.correct_questions += 1 
     end
+    
+    save!
   end
 
   def success_rate
@@ -40,7 +37,11 @@ class TestPassage < ApplicationRecord
   end
 
   def time_is_up?
-    ((test.timer * 60) + created_at.to_i) - Time.now.to_i < 0
+    finished_at - Time.now.to_i < 0
+  end
+
+  def finished_at
+    ((test.timer * 60) + created_at.to_i)
   end
 
   private

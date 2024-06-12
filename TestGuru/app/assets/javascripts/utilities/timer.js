@@ -6,14 +6,8 @@ document.addEventListener('turbolinks:load', function() {
 })
 
 function countDown(timerElement) {
-  var timeTest = timerElement.dataset.timeTest * 60
-  var testCreated = new Date((timerElement.dataset.createdAt) * 1000)
-  
-  var endTime = (testCreated.getTime() / 1000) + timeTest
-  var timeNow = Math.floor(Date.now() / 1000)
+  var passedTime = timerElement.dataset.passedTime - Math.floor(Date.now() / 1000)
 
-  var passedTime = endTime - timeNow
-  
   if (passedTime < 0) {
     document.querySelector('.passage-form').submit()
     return
