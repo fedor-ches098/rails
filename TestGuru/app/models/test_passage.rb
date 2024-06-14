@@ -13,9 +13,9 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
-      self.correct_questions += 1
+      self.correct_questions += 1 
     end
-
+    
     save!
   end
 
@@ -34,6 +34,14 @@ class TestPassage < ApplicationRecord
 
   def current_question_index
     test.questions.ids.find_index(current_question.id) + 1
+  end
+
+  def time_is_up?
+    finished_at - Time.now.to_i < 0
+  end
+
+  def finished_at
+    ((test.timer * 60) + created_at.to_i)
   end
 
   private

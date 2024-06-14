@@ -1,3 +1,4 @@
+<%= render 'shared/timer' if @test_passage.test.timer %>
 <div class="progress">
   <%= content_tag :div, "0%",
                   class: 'progress-bar bg-info',    
@@ -11,7 +12,7 @@
   <b><%= @test_passage.current_question.body %></b> 
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+<%= form_with url: test_passage_path(@test_passage), local: true, method: :put, class: 'passage-form' do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>  
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
